@@ -1,0 +1,6 @@
+connexion
+flask_sqlalchemy
+flask_marshmallow
+flask
+requests
+pytest
