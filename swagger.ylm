@@ -1,0 +1,148 @@
+swagger: "2.0"
+info:
+  description: Get city names based on postal codes.
+  version: "1.0.0"
+  title: REST API
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+
+basePath: "/api"
+
+# Paths supported by the server application
+paths:
+  /users:
+    get:
+      operationId: users.read_all
+      tags:
+        - Users
+      summary: Read all users from master table in database
+      description: Read all users from master
+      responses:
+        200:
+          description: Successfully read users from master operation
+          schema:
+            type: array
+            items:
+              properties:
+                user_id:
+                  type: integer
+                username:
+                  type: string
+
+    post:
+      operationId: users.create
+      tags:
+        - Users
+      summary: Create a user and add it to the database
+      description: Create a new user in the database
+      parameters:
+        - name: user
+          in: body
+          description: User to create
+          required: True
+          schema:
+            type: object
+            properties:
+              username:
+                type: string
+                description: Username of user to create
+              postalcode:
+                type: string
+                description: Postal Code of user to create
+      responses:
+        201:
+          description: Successfully created user in database
+
+  /users/{username}:
+    get:
+      operationId: users.read_one
+      tags:
+        - Users
+      summary: Read one user from the master table in database
+      description: Read one user from master
+      parameters:
+        - name: username
+          in: path
+          description: Username of the user to get from database
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully read user from database
+          schema:
+            properties:
+              user_id:
+                  type: integer
+              username:
+                  type: string
+
+
+    put:
+      operationId: users.update
+      tags:
+        - Users
+      summary: Update a user in the database
+      description: Update a user in the database
+      parameters:
+        - name: username
+          in: path
+          description: Username of the user to update in the database
+          type: string
+          required: True
+        - name: user
+          in: body
+          schema:
+            type: object
+            properties:
+              username:
+                type: string
+              postalcode:
+                type: string
+      responses:
+        200:
+          description: Successfully updated user in database
+
+    delete:
+      operationId: users.delete
+      tags:
+        - Users
+      summary: Delete a user from the database
+      description: Delete a user
+      parameters:
+        - name: username
+          in: path
+          description: Username of the user to delete
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully deleted a user from database
+    
+  /users/details/{username}:       
+    get:
+      operationId: users.read_one_details
+      tags:
+        - Users
+      summary: Read one user from the details table in database
+      description: Read one user from details
+      parameters:
+        - name: username
+          in: path
+          description: Username of the user to get from database
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully read user from database
+          schema:
+            properties:
+              user_id:
+                  type: integer
+              postalcode:
+                  type: string
+              cityname:
+                  type: string
+              timestamp:
+                  type: string
