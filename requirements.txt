@@ -1,6 +1,9 @@
 connexion
+sqlalchemy
 flask_sqlalchemy
 flask_marshmallow
 flask
+marshmallow-sqlalchemy
+marshmallow
 requests
 pytest
