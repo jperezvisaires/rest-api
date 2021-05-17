@@ -19,7 +19,7 @@ app = connex_app.app
 # Echo SQL statements to console.
 app.config["SQLALCHEMY_ECHO"] = True
 # Use SQLite as database and users.db as database file.
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:////" + os.path.join(
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + os.path.join(
     base_dir, "users.db"
 )
 # Turn off SQLAlchemy's event system.
