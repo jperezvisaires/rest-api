@@ -1,4 +1,5 @@
 connexion
+connexion[swagger-ui]
 sqlalchemy
 flask_sqlalchemy
 flask_marshmallow
