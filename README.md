@@ -1,5 +1,5 @@
 # rest-api
-Ejemplo de una implementación simple de una API REST.
+Ejemplo de una implementación simple de una API REST. (Testeado en Linux)
 
 - En server.py, creamos un web server simple mediante Flask que corra en localhost:5000.
 - Utilizamos Connexion para implementar una API REST en este web server, utilizando la especificación Swagger. Swagger nos permite validar el input y output de la API, nos da una forma sencilla de configurar y añadir nuevos endpoints con sus respectivos parámetros y nos permite explorar la API mediante una UI en localhost:5000/api/ui.
