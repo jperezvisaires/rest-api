@@ -10,5 +10,5 @@ Ejemplo de una implementación simple de una API REST.
 
 Para correr los TEST
 - pip install -r requirements.txt
-- python server.py (dejamos el server en corriendo en local)
+- python server.py (dejamos el server corriendo en local)
 - pytest test.py (Testea la lectura de todos los users, la creación de un user, la lectura de ese único user, que la ciudad que consigue es la que corresponde al codigo postal introducido y la eliminación del user creado)
