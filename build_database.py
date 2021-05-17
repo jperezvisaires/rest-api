@@ -12,9 +12,13 @@ USERS = [
     {"username": "Amaia", "postalcode": "48011", "cityname": "Bilbao",},
 ]
 
+# Get absolute path of this file.
+base_dir = os.path.abspath(os.path.dirname(__file__))
+
 # Delete database file if it exists currently.
-if os.path.exists("people.db"):
-    os.remove("people.db")
+if os.path.isfile(os.path.join(base_dir, "users.db")):
+    print("Removed database")
+    os.remove("users.db")
 
 # Creates the database.
 db.create_all()

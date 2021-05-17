@@ -159,8 +159,8 @@ def update(username, user):
     cityname = _get_cityname(user.get("postalcode"))
 
     # Get the user requested from the db into session
-    master_update = Master.query.filter(Master.username == username).one_or_none()
-    detail_update = Master.query.filter(Master.username == username).one_or_none()
+    master = Master.query.filter(Master.username == username).one_or_none()
+    detail = Master.query.filter(Master.username == username).one_or_none()
 
     # Does the user already exist?
     if username is not None and cityname is not None:
@@ -174,8 +174,8 @@ def update(username, user):
         detail_update = detail_schema.load(detail_user, session=db.session)
 
         # Set the id to the person we want to update
-        master_update.user_id = master_update.user_id
-        detail_update.user_id = detail_update.user_id
+        master_update.user_id = master.user_id
+        detail_update.user_id = detail.user_id
 
         # merge the new object into the old and commit it to the db
         db.session.merge(master_update)
